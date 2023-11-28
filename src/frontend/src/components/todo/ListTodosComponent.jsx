@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import { retrieveTodosForUsername } from "./api/TodoApiService";
 
 export default function ListTodosComponent() {
-    const today = new Date();
-    const targetDate = new Date(today.getFullYear() + 12, today.getMonth(), today.getDay());
-    const [todos, setTodos] = useState([]);
+    // const today = new Date();
+    // const targetDate = new Date(today.getFullYear() + 12, today.getMonth(), today.getDay());
     // const todos = [
     //     {
     //         id: 1,
@@ -26,6 +25,7 @@ export default function ListTodosComponent() {
     //     },
     // ];
 
+    const [todos, setTodos] = useState([]);
     useEffect( () => refreshTodos(),[] );
 
     function refreshTodos() {
