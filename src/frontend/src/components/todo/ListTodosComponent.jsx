@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { retrieveTodosForUsernameApi, deleteTodoApi } from "./api/TodoApiService";
+import { useAuth } from "./security/AuthContext";
 
 export default function ListTodosComponent() {
     // const today = new Date();
@@ -24,6 +25,8 @@ export default function ListTodosComponent() {
     //         targetDate: targetDate,
     //     },
     // ];
+    const authContext = useAuth()
+    const username = authContext.username;
 
     const [todos, setTodos] = useState([]);
     const [message, setMessage] = useState(null);
@@ -31,7 +34,7 @@ export default function ListTodosComponent() {
     useEffect( () => refreshTodos(),[] );
 
     function refreshTodos() {
-        retrieveTodosForUsernameApi('hyeon')
+        retrieveTodosForUsernameApi(username)
             .then(response => {
                 setTodos(response.data)
             })
@@ -40,7 +43,7 @@ export default function ListTodosComponent() {
 
     function deleteTodo(id) {
         console.log("click delete " + id);
-        deleteTodoApi('hyeon', id)
+        deleteTodoApi(username, id)
             .then(
                 // 1. 삭제 성공 메세지
                 // 2. Todo-list 업데이트
