@@ -8,14 +8,13 @@ export default function WelcomeComponent() {
     const [message, setMessage] = useState(null);
 
     function callHelloWorldRestApi() {
-
         // axios
         retrieveHelloWorldBean()
              .then( (response) => successfulResponse(response) )
              .catch( (error) => errorResponse(error) )
              .finally( () => console.log('clean up') );
 
-        retrieveHelloWorldPathVariable('Hyeon')
+        retrieveHelloWorldPathVariable('hyeon')
             .then( (response) => successfulResponse(response) )
             .catch( (error) => errorResponse(error) )
             .finally( () => console.log('clean up') );
