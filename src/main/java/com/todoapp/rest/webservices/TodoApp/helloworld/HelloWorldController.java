@@ -7,8 +7,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloWorldController {
 	
+	@GetMapping(path = "/basicauth")
+	// 인증을 위한 테스트 url
+	public String basicAuthCheck() {
+		// 로그인 시 아이디와 패스워드를 받아 토큰을 생성 및 요청
+		// 틀린 아이디와 비밀번호일 경우 토큰이 유요하지 않아서 인증 실패를 리턴
+		return "Success";
+	}
+
 	@GetMapping(path = "/hello-world")
-	public String helloWorld() {
+	public String helloworld() {
 		return "Hello World v2";
 	}
 	
