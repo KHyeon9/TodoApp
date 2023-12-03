@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { excuteBasicAuthenticationService } from "../api/HelloWorldApiService";
+import { apiClient } from "../api/ApiClient";
 
 // 1: Context 생성
 export const AuthContext = createContext();
@@ -38,6 +39,16 @@ function AuthProvider({ children }) {
                 setAuthenticated(true);
                 setUsername(username);
                 setToken(basicToken);
+
+                apiClient.interceptors.request.use(
+                    (config) => {
+                        console.log('intercepting and adding a token');
+                        config.headers.Authorization = basicToken;
+
+                        return config;
+                    }
+                );
+
                 return true;
             } else {
                 logout();
