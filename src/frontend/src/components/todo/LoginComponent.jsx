@@ -5,7 +5,7 @@ import { useAuth } from './security/AuthContext';
 export default function LoginComponent() {
 
     const [username, setUsername] = useState('hyeon');
-    const [password, setPassword] = useState('');
+    const [password, setPassword] = useState('dummy');
 
     const [showErrorMessage, setShowErrorMessage] = useState(false);
 
