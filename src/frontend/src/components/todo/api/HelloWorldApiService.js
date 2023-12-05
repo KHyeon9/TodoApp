@@ -19,9 +19,3 @@ export const retrieveHelloWorldPathVariable // 주소로 받는 값이 있읅경
     // }
     );
 
-export const excuteBasicAuthenticationService
-    = (token) => apiClient.get(`/basicauth`, {
-        headers: {
-            Authorization: token
-        }
-    });
