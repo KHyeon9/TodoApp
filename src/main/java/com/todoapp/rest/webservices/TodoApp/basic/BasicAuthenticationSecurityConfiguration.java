@@ -8,7 +8,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration
+// @Configuration
 public class BasicAuthenticationSecurityConfiguration {
     // Filter Chain 설정
     // 모든 인증 요청을 인증하게 되는데
