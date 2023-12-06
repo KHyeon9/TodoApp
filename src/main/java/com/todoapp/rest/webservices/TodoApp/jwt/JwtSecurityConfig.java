@@ -50,7 +50,7 @@ public class JwtSecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         // 인증자 예외처리 (permitAll이 붙은 모든 경로는 모든 사용자에게 허가 됩니다.)
                         .requestMatchers("/authenticate").permitAll()
-                        .requestMatchers(PathRequest.toH2Console()).permitAll()
+                        // .requestMatchers(PathRequest.toH2Console()).permitAll()
                         .requestMatchers(HttpMethod.OPTIONS,"/**").permitAll()
                         .anyRequest()
                         .authenticated())
